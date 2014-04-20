@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
@@ -52,30 +51,36 @@ public class PostToPIXNET {
 		// + hmacsha1(ex(), "dfa46d6dc4acfc8a25046fffcc5d9b14")
 		// + "\",oauth_timestamp=\"" + oauth[4][1]
 		// + "\",oauth_version=\"1.0\"";
-		String header = "http://emma.pixnet.cc/oauth/request_token?"+ oauth[0][0] + "=" + oauth[0][1] + "&"
-				+ oauth[1][0] + "=" + oauth[1][1] + "&" + oauth[2][0] + "="
-				+ oauth[2][1] + "&" + oauth[3][0] + "=" + oauth[3][1] + "&"
-				+ oauth[4][0] + "=" + oauth[4][1] + "&" + oauth[5][0] + "="
-				+ oauth[5][1] + "&" + oauth[6][0] + "=" + oauth[6][1];
-		System.out.println(header);
-		System.out.println(set_basestring());
-		//header = oauth[1][0] + "=\"" + oauth[1][1] + "\"," + oauth[2][0]
-		//		+ "=\"" + oauth[2][1] + "\"," + oauth[3][0] + "=\"" + oauth[3][1]
-		//		+ "\"," + oauth[4][0] + "=\"" + oauth[4][1] + "\"," + oauth[5][0]
-		//		+ "=\"" + oauth[5][1] + "\"," + oauth[6][0] + "=\"" + oauth[6][1]+"\"";
-		//URL url = new URL("http://emma.pixnet.cc/oauth/request_token");
-		//HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-		//conn.setDoInput(true); // 設定為可從伺服器讀取資料
-		//conn.setDoOutput(true); // 設定為可寫入資料至伺服器
-		//conn.setRequestMethod("GET");
-		//conn.setRequestProperty("Authorization", "OAuth " + header);
-		//conn.connect();
-		//String inputLine = "";
-		//BufferedReader br = new BufferedReader(new InputStreamReader(
-		//		conn.getInputStream(), "UTF-8"));
-		//while ((inputLine = br.readLine()) != null) {
-		//	System.out.println(inputLine); // 印出結果
-		//}
+		String header = "http://emma.pixnet.cc/oauth/request_token?"
+				+ oauth[0][0] + "=" + oauth[0][1] + "&" + oauth[1][0] + "="
+				+ oauth[1][1] + "&" + oauth[2][0] + "=" + oauth[2][1] + "&"
+				+ oauth[3][0] + "=" + oauth[3][1] + "&" + oauth[4][0] + "="
+				+ oauth[4][1] + "&" + oauth[5][0] + "=" + oauth[5][1] + "&"
+				+ oauth[6][0] + "=" + oauth[6][1];
+		// System.out.println(header);
+		// System.out.println(set_basestring());
+		// header = oauth[1][0] + "=\"" + oauth[1][1] + "\"," + oauth[2][0]
+		// + "=\"" + oauth[2][1] + "\"," + oauth[3][0] + "=\"" + oauth[3][1]
+		// + "\"," + oauth[4][0] + "=\"" + oauth[4][1] + "\"," + oauth[5][0]
+		// + "=\"" + oauth[5][1] + "\"," + oauth[6][0] + "=\"" +
+		// oauth[6][1]+"\"";
+		URL url = new URL(header);
+		URLConnection conn = url.openConnection();
+		BufferedReader br = new BufferedReader(new InputStreamReader(
+				conn.getInputStream(), "UTF-8"));
+		System.out.println(br.readLine());
+		// HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		// conn.setDoInput(true); // 設定為可從伺服器讀取資料
+		// conn.setDoOutput(true); // 設定為可寫入資料至伺服器
+		// conn.setRequestMethod("GET");
+		// conn.setRequestProperty("Authorization", "OAuth " + header);
+		// conn.connect();
+		// String inputLine = "";
+		// BufferedReader br = new BufferedReader(new InputStreamReader(
+		// conn.getInputStream(), "UTF-8"));
+		// while ((inputLine = br.readLine()) != null) {
+		// System.out.println(inputLine); // 印出結果
+		// }
 		// System.out.println(urlstr);
 
 	}
