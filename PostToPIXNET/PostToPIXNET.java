@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -25,27 +24,31 @@ public class PostToPIXNET {
 	String oauth_nonce = "";
 	String oauth_signature_method = "HMAC-SHA1";
 	String oauth_timestamp = "";
-	String oauth_token = "";
+	String oauth_token = "6f8fd46805b50912ec7e93734f269a47";
 	String oauth_verifier = "";
 	String oauth_version = "1.0";
 	String oauth_signature = "";
-	String oauth_token_secret = "";
+	String oauth_token_secret = "c98a9526ba72302b7293843d7a3a5131";
 
 	PostToPIXNET() throws Exception {
-		request();
-		access();
-		readUser();
-		// postArticle();
+		// request();
+		// access();
+		// readUser();
+		postArticle();
 		// Thread.sleep(100);
 		// readUser();
 	}
 
 	public void postArticle() throws Exception {
 		// try {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		System.out.print("請輸入文章標題:");
+		String title = "Hello";
+		System.out.print("請輸入文章內容:");
+		String body = "What";
 		oauth_nonce = set_nonce();
 		oauth_timestamp = set_timestamp();
-		String title = "title=Hi";
-		String body = "body=Test";
+
 		oauth_signature = get_signature(
 				set_baseForPostArticle(title, body),
 				"dfa46d6dc4acfc8a25046fffcc5d9b14&"
@@ -56,67 +59,87 @@ public class PostToPIXNET {
 		con.setDoOutput(true);
 		con.setDoInput(true);
 		con.setRequestMethod("POST");
-		String header = "OAuth " + oauth_callback + "&" + oauth_consumer_key
-				+ "&" + oauth_nonce + "&" + oauth_signature_method + "&"
-				+ oauth_timestamp + "&" + oauth_token + "&" + oauth_version
-				+ "&" + oauth_signature;
-		con.setRequestProperty("Authorization", header);
-		con.connect();
-		// con.setRequestProperty("Oauth", header);
-		// con.connect();
-		// System.out.println(header);
+		String header = "oauth_consumer_key=\""
+				+ URLEncoder.encode(oauth_consumer_key, "utf-8") + "\","
+				+ "oauth_nonce=\"" + URLEncoder.encode(oauth_nonce, "utf-8")
+				+ "\"," + "oauth_signature_method=\""
+				+ URLEncoder.encode(oauth_signature_method, "utf-8") + "\","
+				+ "oauth_timestamp=\""
+				+ URLEncoder.encode(oauth_timestamp, "utf-8") + "\","
+				+ "oauth_token=\"" + URLEncoder.encode(oauth_token, "utf-8")
+				+ "\"," + "oauth_version=\""
+				+ URLEncoder.encode(oauth_version, "utf-8") + "\","
+				+ "oauth_signature=\""
+				+ oauth_signature.substring(0, oauth_signature.length() - 2)
+				+ "\"";
+		//System.out.println(header);
+		//System.out.println(set_baseForPostArticle(title, body));
+		con.setRequestProperty("Authorization", "OAuth " + header);
+		// con.setRequestProperty("body", body);
+		// con.setRequestProperty("title", title);
+		con.setDoOutput(true);
+
+		DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+		wr.writeBytes("body="+URLEncoder.encode(body,"UTF-8")+"&title="+URLEncoder.encode(title,"UTF-8"));
+		wr.flush();
+		wr.close();
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(
 				con.getInputStream(), "UTF-8"));
 		System.out.println(br.readLine());
 
-		// } catch (IOException e) {
-		// postArticle();
-		// }
 	}
 
 	public void readUser() throws Exception {
+		URLConnection con = null;
 		try {
 			oauth_nonce = set_nonce();
 			oauth_timestamp = set_timestamp();
+			// System.out.println(set_baseForUserInfo());
 			oauth_signature = get_signature(set_baseForUserInfo(),
 					"dfa46d6dc4acfc8a25046fffcc5d9b14&" + oauth_token_secret);
-			String header = "oauth_callback=\""
-					+ URLEncoder.encode(oauth_callback, "utf-8") + "\", "
-					+ "oauth_consumer_key=\""
-					+ URLEncoder.encode(oauth_consumer_key, "utf-8") + "\", "
+			String header = "oauth_consumer_key=\""
+					+ URLEncoder.encode(oauth_consumer_key, "utf-8")
+					+ "\","
 					+ "oauth_nonce=\""
-					+ URLEncoder.encode(oauth_nonce, "utf-8") + "\", "
+					+ URLEncoder.encode(oauth_nonce, "utf-8")
+					+ "\","
 					+ "oauth_signature_method=\""
 					+ URLEncoder.encode(oauth_signature_method, "utf-8")
-					+ "\", " + "oauth_timestamp=\""
-					+ URLEncoder.encode(oauth_timestamp, "utf-8") + "\", "
+					+ "\","
+					+ "oauth_timestamp=\""
+					+ URLEncoder.encode(oauth_timestamp, "utf-8")
+					+ "\","
 					+ "oauth_token=\""
-					+ URLEncoder.encode(oauth_token, "utf-8") + "\", "
+					+ URLEncoder.encode(oauth_token, "utf-8")
+					+ "\","
 					+ "oauth_version=\""
-					+ URLEncoder.encode(oauth_version, "utf-8") + "\", "
+					+ URLEncoder.encode(oauth_version, "utf-8")
+					+ "\","
 					+ "oauth_signature=\""
-					+ URLEncoder.encode(oauth_signature, "utf-8") + "\"";
-			System.out.println(header);
+					+ oauth_signature
+							.substring(0, oauth_signature.length() - 2) + "\"";
+			// System.out.println("\""+oauth_signature.substring(0,
+			// oauth_signature.length()-2)+"\"");
+			// System.out.println(header);
 			// System.out.println(set_baseForUserInfo());
 			URL url = new URL("http://emma.pixnet.cc/account");
-			HttpURLConnection con = (HttpURLConnection) url.openConnection();
-			con.setRequestProperty("Accept-Charset", "UTF-8");
-			con.setRequestMethod("GET");
+			con = url.openConnection();
+			// con.setRequestMethod("GET");
 			con.setRequestProperty("Authorization", "OAuth " + header);
-			con.setRequestProperty("Content-type",
-					"application/x-java-serialized-object");
+			// con.setRequestProperty("Expect", "");
 			con.setDoOutput(true);
-			OutputStream output = con.getOutputStream();
-			output.write(header.getBytes("UTF-8"));
+			// System.out.println(con.getHeaderField("Authorization"));
 			con.connect();
-			/* URLConnection conn = url.openConnection(); */
 			BufferedReader br = new BufferedReader(new InputStreamReader(
 					con.getInputStream(), "UTF-8"));
 			System.out.println(br.readLine());
+			/* URLConnection conn = url.openConnection(); */
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 	}
 
 	public void access() throws Exception {
@@ -164,6 +187,8 @@ public class PostToPIXNET {
 			String[] accToken = accessUrl.split("&");
 			oauth_token = accToken[0].replace("oauth_token=", "");
 			oauth_token_secret = accToken[1].replace("oauth_token_secret=", "");
+			System.out.println("oauth_token:" + oauth_token
+					+ "\noauth_token_secret:" + oauth_token_secret);
 		} catch (IOException e) {
 			access();
 		}
@@ -198,7 +223,8 @@ public class PostToPIXNET {
 			String[] token = reqToken[4].split("request_auth_url=");
 			System.out.println(token[1]);
 		} catch (IOException e) {
-			request();
+			// request();
+			e.printStackTrace();
 		}
 
 	}
@@ -214,11 +240,12 @@ public class PostToPIXNET {
 				+ "&"
 				+ URLEncoder.encode("http://emma.pixnet.cc/blog/articles",
 						"utf-8") + "&";
-		String bsss = body + "&" + "oauth_callback="
-				+ URLEncoder.encode("oob", "utf-8") + "&" + oauth_consumer_key
-				+ "&" + oauth_nonce + "&" + oauth_signature_method + "&"
-				+ oauth_timestamp + "&" + oauth_token + "&" + oauth_version
-				+ "&" + title;
+		String bsss = "body=" + body + "&" + "oauth_consumer_key="
+				+ oauth_consumer_key + "&" + "oauth_nonce=" + oauth_nonce + "&"
+				+ "oauth_signature_method=" + oauth_signature_method + "&"
+				+ "oauth_timestamp=" + oauth_timestamp + "&" + "oauth_token="
+				+ oauth_token + "&" + "oauth_version=" + oauth_version + "&"
+				+ "title=" + title;
 		bsss = URLEncoder.encode(bsss, "utf-8");
 		return bss + bsss;
 	}
@@ -228,8 +255,7 @@ public class PostToPIXNET {
 		bss = "GET" + "&"
 				+ URLEncoder.encode("http://emma.pixnet.cc/account", "utf-8")
 				+ "&";
-		String bsss = "oauth_callback=" + URLEncoder.encode("oob", "utf-8")
-				+ "&" + "oauth_consumer_key=" + oauth_consumer_key + "&"
+		String bsss = "oauth_consumer_key=" + oauth_consumer_key + "&"
 				+ "oauth_nonce=" + oauth_nonce + "&"
 				+ "oauth_signature_method=" + oauth_signature_method + "&"
 				+ "oauth_timestamp=" + oauth_timestamp + "&" + "oauth_token="
