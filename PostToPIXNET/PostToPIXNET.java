@@ -19,7 +19,7 @@ public class PostToPIXNET {
 	String oauth_callback = "oauth_callback=oob";
 	String oauth_consumer_key = "oauth_consumer_key=46857444204aa2ce0cb8c9666a8eadae";
 	String oauth_nonce = "oauth_nonce=";
-	String oauth_signature_method = "oauth_signature_methond=HMAC-SHA1";
+	String oauth_signature_method = "oauth_signature_method=HMAC-SHA1";
 	String oauth_timestamp = "oauth_timestamp=";
 	String oauth_token = "oauth_token=";
 	String oauth_verifier = "oauth_verifier=";
@@ -35,6 +35,7 @@ public class PostToPIXNET {
 
 	PostToPIXNET() throws Exception {
 		request();
+		
 	}
 
 	public void request() throws Exception {
@@ -47,16 +48,17 @@ public class PostToPIXNET {
 				+ "&" + oauth_signature_method + "&" + oauth_timestamp + "&"
 				+ oauth_version + "&" + oauth_signature;
 		URL url = new URL(header);
-		//URLConnection conn = url.openConnection();
-		//BufferedReader br = new BufferedReader(new InputStreamReader(
-		//		conn.getInputStream(), "UTF-8"));
-		//String authUrl = br.readLine();
-		//String[] reqToken = authUrl.split("&");
-		//oauth_token = reqToken[0];
-		//oauth_token_secret = reqToken[1];
-		//reqToken[4] = URLDecoder.decode(reqToken[4], "utf-8");
-		//String[] token = reqToken[4].split("request_auth_url=");
-		//System.out.println(token[1]);
+		//System.out.println(header);
+		URLConnection conn = url.openConnection();
+		BufferedReader br = new BufferedReader(new InputStreamReader(
+				conn.getInputStream(), "UTF-8"));
+		String authUrl = br.readLine();
+		String[] reqToken = authUrl.split("&");
+		oauth_token = reqToken[0];
+		oauth_token_secret = reqToken[1];
+		reqToken[4] = URLDecoder.decode(reqToken[4], "utf-8");
+		String[] token = reqToken[4].split("request_auth_url=");
+		System.out.println(token[1]);
 	}
 
 	public static void main(String[] args) throws Exception {
