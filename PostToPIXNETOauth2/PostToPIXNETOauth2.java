@@ -1,8 +1,16 @@
+import java.beans.Encoder;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLEncoder;
+import java.nio.charset.Charset;
+import java.util.Scanner;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,10 +22,38 @@ public class PostToPIXNETOauth2 {
 
 	PostToPIXNETOauth2() throws IOException, JSONException {
 		grant();
+
+		post();
 	}
 
 	public static void main(String args[]) throws IOException, JSONException {
 		new PostToPIXNETOauth2();
+	}
+
+	void post() throws IOException {
+		Scanner in = new Scanner(System.in, "UTF-8");
+		System.out.print("請輸入標題:");
+		String title = "安安";
+		System.out.print("請輸入內容:");
+		String body = "掰掰";
+		// System.out.println();
+		// System.out.println(title);
+		URL urlPost = new URL(
+				"https://emma.pixnet.cc/blog/articles?access_token="
+						+ access_token + "&body="
+						+ URLEncoder.encode(body, "UTF-8") + "&title="
+						+ URLEncoder.encode(title, "UTF-8"));
+		// System.out.println(urlPost.toString());
+		HttpURLConnection con = (HttpURLConnection) urlPost.openConnection();
+		con.setDoOutput(true);
+		con.setDoInput(true);
+		con.setRequestProperty("Content-Type",
+				"application/x-www-form-urlencoded");
+		con.setRequestMethod("POST");
+		con.connect();
+		BufferedReader br = new BufferedReader(new InputStreamReader(
+				con.getInputStream(), "UTF-8"));
+		System.out.println(br.readLine());
 	}
 
 	void grant() throws IOException, JSONException {
