@@ -1,11 +1,7 @@
-import java.beans.Encoder;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
@@ -17,12 +13,11 @@ import org.json.JSONObject;
 
 public class PostToPIXNETOauth2 {
 	String url = "https://emma.pixnet.cc/oauth2/authorize?client_id=46857444204aa2ce0cb8c9666a8eadae&redirect_uri=http://oob&response_type=code";
-	String code = "37e66182143c34c357a388b1f56556b961e6512f";
+	String code = "";
 	String access_token = "";
 
 	PostToPIXNETOauth2() throws IOException, JSONException {
 		grant();
-
 		post();
 	}
 
@@ -31,19 +26,21 @@ public class PostToPIXNETOauth2 {
 	}
 
 	void post() throws IOException {
-		Scanner in = new Scanner(System.in, "UTF-8");
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in,
+				"big5"));
 		System.out.print("請輸入標題:");
-		String title = "安安";
+		String title = in.readLine();
 		System.out.print("請輸入內容:");
-		String body = "掰掰";
+		String body = in.readLine();
 		// System.out.println();
-		// System.out.println(title);
+		// System.out.println(title + body);
+
 		URL urlPost = new URL(
 				"https://emma.pixnet.cc/blog/articles?access_token="
 						+ access_token + "&body="
 						+ URLEncoder.encode(body, "UTF-8") + "&title="
-						+ URLEncoder.encode(title, "UTF-8"));
-		// System.out.println(urlPost.toString());
+						+ URLEncoder.encode(title, "UTF-8")); //
+		System.out.println(urlPost.toString());
 		HttpURLConnection con = (HttpURLConnection) urlPost.openConnection();
 		con.setDoOutput(true);
 		con.setDoInput(true);
