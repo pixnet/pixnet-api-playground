@@ -1,6 +1,5 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -99,7 +98,7 @@ public class PostToPIXNET {
 			System.out.println(br.readLine());
 		} catch (Exception e) {
 			System.out.println("Post Fail");
-			//postArticle(title, body);
+			// postArticle(title, body);
 		}
 
 	}

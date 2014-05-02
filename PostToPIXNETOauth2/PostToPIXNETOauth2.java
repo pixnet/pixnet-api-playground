@@ -5,8 +5,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
-import java.nio.charset.Charset;
-import java.util.Scanner;
 
 import org.json.JSONException;
 import org.json.JSONObject;
