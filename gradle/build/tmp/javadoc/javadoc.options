@@ -1,0 +1,7 @@
+-classpath 'D:\\test\\gradle\\build\\classes\\main;D:\\test\\gradle\\build\\resources\\main;C:\\Users\\Koi\\.gradle\\caches\\modules-2\\files-2.1\\commons-codec\\commons-codec\\1.8\\af3be3f74d25fc5163b54f56a0d394b462dafafd\\commons-codec-1.8.jar;C:\\Users\\Koi\\.gradle\\caches\\modules-2\\files-2.1\\org.json\\json\\20140107\\d1ffca6e2482b002702c6a576166fd685e3370e3\\json-20140107.jar'
+-d 'D:\\test\\gradle\\build\\docs\\javadoc'
+-doctitle 'gradle API'
+-encoding 'UTF-8'
+-quiet 
+-windowtitle 'gradle API'
+'D:\\test\\gradle\\src\\main\\java\\com\\example\\Main.java'
