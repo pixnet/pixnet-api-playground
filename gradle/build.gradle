@@ -7,12 +7,13 @@ compileJava.options.encoding = 'UTF-8'
 
 mainClassName = 'com.example.Main'
 
-repositories {  
-    mavenCentral()  
+repositories {
+	mavenCentral()
 }  
   
 dependencies {  
-    compile 'commons-codec:commons-codec:1.8' 
-    compile 'org.json:json:20140107' 
+    testCompile 'junit:junit:4.+'
+    compile 'commons-codec:commons-codec:1.8'
+    compile files('libs/java-json.jar')
 } 
 

@@ -22,9 +22,12 @@ public class Main {
 	 * @throws IOException
 	 * @throws JSONException
 	 */
-	public Main() throws IOException, JSONException {
+	public Main() {
+		try{
 		grant();
 		post();
+		}catch(Exception e){
+		}
 	}
 	/**
 	 * Start of Program
@@ -32,7 +35,7 @@ public class Main {
 	 * @throws IOException
 	 * @throws JSONException
 	 */
-	public static void main(String args[]) throws IOException, JSONException {
+	public static void main(String args[]) {
 		new Main();
 	}
 	/**
@@ -82,5 +85,8 @@ public class Main {
 		String json = br.readLine();
 		JSONObject obj = new JSONObject(json);
 		access_token = (String) obj.get("access_token");
+	}
+	public int test(int a){
+		return 10;
 	}
 }
