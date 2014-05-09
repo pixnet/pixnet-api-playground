@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.MainTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2014-05-09T03:22:56" hostname="Koi-NB" time="0.503">
+<testsuite name="com.example.MainTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2014-05-09T07:55:06" hostname="Koi-NB" time="0.444">
   <properties/>
-  <testcase name="test" classname="com.example.MainTest" time="0.503"/>
+  <testcase name="test" classname="com.example.MainTest" time="0.444"/>
   <system-out><![CDATA[Code:https://emma.pixnet.cc/oauth2/authorize?client_id=46857444204aa2ce0cb8c9666a8eadae&redirect_uri=http://oob&response_type=code
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
