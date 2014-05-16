@@ -1,0 +1,24 @@
+apply plugin: 'java'  
+apply plugin: 'eclipse'
+apply plugin: 'application'  
+
+
+javadoc.options.encoding = 'UTF-8'  
+compileJava.options.encoding = 'UTF-8'  
+
+mainClassName = 'pixnet.oauth.Main'
+
+repositories {
+	mavenCentral()
+	maven {
+		url "https://raw.github.com/fernandezpablo85/scribe-java/mvn-repo/"
+	}
+	maven {
+		url "https://github.com/Twbadkid/Test-Maven-Repo/raw/master/"
+	}
+}  
+  
+dependencies {  
+    testCompile 'junit:junit:4.+'
+    compile 'com.test:testrepo:1.0.+'
+}

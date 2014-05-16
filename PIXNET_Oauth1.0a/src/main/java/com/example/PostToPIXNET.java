@@ -49,7 +49,7 @@ public class PostToPIXNET {
 	 *            -your consumer secret
 	 * @throws Exception
 	 */
-	PostToPIXNET(String oauth_consumer_key, String oauth_consumer_secret) {
+	public PostToPIXNET(String oauth_consumer_key, String oauth_consumer_secret) {
 		this.oauth_consumer_key = oauth_consumer_key;
 		this.oauth_consumer_secret = oauth_consumer_secret;
 	}
