@@ -4,5 +4,5 @@
 -encoding 'UTF-8'
 -quiet 
 -windowtitle 'PIXNET_Oauth1.0a API'
-'C:\\Users\\Koi\\Desktop\\pixnet-api-playground\\PIXNET_Oauth1.0a\\src\\main\\java\\com\\example\\Main.java'
 'C:\\Users\\Koi\\Desktop\\pixnet-api-playground\\PIXNET_Oauth1.0a\\src\\main\\java\\com\\example\\PostToPIXNET.java'
+'C:\\Users\\Koi\\Desktop\\pixnet-api-playground\\PIXNET_Oauth1.0a\\src\\main\\java\\com\\example\\PostToPIXNETOauth2.java'
