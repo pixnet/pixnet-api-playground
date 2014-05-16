@@ -11,14 +11,11 @@ mainClassName = 'pixnet.oauth.Main'
 repositories {
 	mavenCentral()
 	maven {
-		url "https://raw.github.com/fernandezpablo85/scribe-java/mvn-repo/"
-	}
-	maven {
 		url "https://github.com/Twbadkid/Test-Maven-Repo/raw/master/"
 	}
 }  
   
 dependencies {  
     testCompile 'junit:junit:4.+'
-    compile 'com.test:testrepo:1.0.+'
+    compile 'com.test:testrepo:1.0.5'
 }
