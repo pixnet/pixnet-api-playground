@@ -33,7 +33,7 @@ uploadArchives {
     repositories.mavenDeployer {
         repository(url: "file://C:/Users/Koi/Desktop/pixnet-api-playground/gradle/github")
         pom {
-            version = '1.0.1'
+            version = '1.0.0'
             artifactId = 'testrepo'
             groupId = 'com.test'
         }
