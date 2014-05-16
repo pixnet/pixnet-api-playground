@@ -12,16 +12,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * PIXNET Api Oauth2.0
- * @author Koi
+ * PIXNET API Oauth2.0
  * 
+ * @author Koi
  */
 public class PostToPIXNETOauth2 {
-	String code = "";
-	String access_token = "";
-	String client_id = "";
-	String client_secret = "";
-	String redirect_uri = "";
+	private String access_token = "";
+	private String client_id = "";
+	private String client_secret = "";
+	private String redirect_uri = "";
 
 	/**
 	 * Constructor
