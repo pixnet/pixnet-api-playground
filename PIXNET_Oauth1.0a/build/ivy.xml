@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
-  <info organisation="" module="gradle" revision="unspecified" status="integration" publication="20140516112043">
+  <info organisation="" module="PIXNET_Oauth1.0a" revision="unspecified" status="integration" publication="20140516133703">
     <description/>
   </info>
   <configurations>
@@ -12,7 +12,7 @@
     <conf name="testRuntime" visibility="private" description="Runtime classpath for source set 'test'." extends="runtime,testCompile"/>
   </configurations>
   <publications>
-    <artifact name="gradle" type="jar" ext="jar" conf="archives,runtime"/>
+    <artifact name="PIXNET_Oauth1.0a" type="jar" ext="jar" conf="archives,runtime"/>
   </publications>
   <dependencies>
     <dependency org="commons-codec" name="commons-codec" rev="1.8" conf="compile-&gt;default"/>
