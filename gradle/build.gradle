@@ -23,7 +23,7 @@ dependencies {
     compile 'commons-codec:commons-codec:1.8'
     compile files('libs/java-json.jar')
     compile 'org.scribe:scribe:1.3.6'
-    compile 'com.test:testrepo:1.0.0'
+    compile 'com.test:testrepo:1.0.1'
 } 
 
 apply plugin: 'maven'
@@ -33,7 +33,7 @@ uploadArchives {
     repositories.mavenDeployer {
         repository(url: "file://C:/Users/Koi/Desktop/pixnet-api-playground/gradle/github")
         pom {
-            version = '1.0.1'
+            version = '1.0.2'
             artifactId = 'testrepo'
             groupId = 'com.test'
         }
