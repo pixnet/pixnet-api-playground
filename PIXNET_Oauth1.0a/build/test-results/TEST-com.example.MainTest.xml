@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.MainTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2014-05-16T05:32:57" hostname="Koi-NB" time="0.285">
+  <properties/>
+  <testcase name="get" classname="com.example.MainTest" time="0.003"/>
+  <testcase name="test" classname="com.example.MainTest" time="0.28"/>
+  <testcase name="set_nonce" classname="com.example.MainTest" time="0.0"/>
+  <testcase name="set_timestamp" classname="com.example.MainTest" time="0.0"/>
+  <system-out><![CDATA[https://emma.pixnet.cc/oauth/authorize?oauth_token=9f6c0a32a6b82233efff2b59d8f75b5a
+ol3o105wj44k15kguy
+1400218378
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
