@@ -44,12 +44,12 @@ public class PostToPIXNET {
 	 * Constructor
 	 * 
 	 * @param oauth_consumer_key
-	 *            -your consumer key
+	 *            your consumer key
 	 * @param oauth_consumer_secret
-	 *            -your consumer secret
+	 *            your consumer secret
 	 * @throws Exception
 	 */
-	public PostToPIXNET(String oauth_consumer_key, String oauth_consumer_secret) {
+	PostToPIXNET(String oauth_consumer_key, String oauth_consumer_secret) {
 		this.oauth_consumer_key = oauth_consumer_key;
 		this.oauth_consumer_secret = oauth_consumer_secret;
 	}
