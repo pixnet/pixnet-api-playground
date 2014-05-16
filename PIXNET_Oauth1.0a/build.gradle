@@ -28,7 +28,7 @@ uploadArchives {
     repositories.mavenDeployer {
         repository(url: "file://C:/Users/Koi/Desktop/pixnet-api-playground/PIXNET_Oauth1.0a/github")
         pom {
-            version = '1.0.5'
+            version = '1.0.7'
             artifactId = 'testrepo'
             groupId = 'com.test'
         }

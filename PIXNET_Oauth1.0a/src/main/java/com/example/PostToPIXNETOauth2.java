@@ -12,7 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * 
+ * PIXNET Api Oauth2.0
  * @author Koi
  * 
  */

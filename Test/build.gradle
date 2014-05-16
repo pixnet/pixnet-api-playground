@@ -17,5 +17,5 @@ repositories {
   
 dependencies {  
     testCompile 'junit:junit:4.+'
-    compile 'com.test:testrepo:1.0.5'
+    compile 'com.test:testrepo:1.0.7'
 }
