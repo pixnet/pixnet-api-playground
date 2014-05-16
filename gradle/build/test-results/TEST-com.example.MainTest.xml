@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.MainTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2014-05-16T03:18:24" hostname="Koi-NB" time="0.315">
-  <properties/>
-  <testcase name="test" classname="com.example.MainTest" time="0.315"/>
-  <system-out><![CDATA[https://emma.pixnet.cc/oauth/authorize?oauth_token=8493f66c6e7565d79925c890a3dcfdec
-https://emma.pixnet.cc/oauth/authorize?oauth_token=474770b0609f3ecada79bef221647fdd
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
