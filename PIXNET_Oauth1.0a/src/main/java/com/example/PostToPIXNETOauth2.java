@@ -82,7 +82,7 @@ public class PostToPIXNETOauth2 {
 
 	/**
 	 * 
-	 * @param code
+	 * @param code Code from RequestUrl
 	 * @return Set code and Get AccessToken
 	 * @throws IOException
 	 * @throws JSONException

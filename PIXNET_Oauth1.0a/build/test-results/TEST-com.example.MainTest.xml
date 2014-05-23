@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.MainTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2014-05-23T01:57:36" hostname="Koi-NB" time="0.414">
+<testsuite name="com.example.MainTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2014-05-23T02:01:53" hostname="Koi-NB" time="0.271">
   <properties/>
-  <testcase name="get" classname="com.example.MainTest" time="0.003"/>
-  <testcase name="test" classname="com.example.MainTest" time="0.411"/>
+  <testcase name="get" classname="com.example.MainTest" time="0.004"/>
+  <testcase name="test" classname="com.example.MainTest" time="0.266"/>
   <testcase name="set_nonce" classname="com.example.MainTest" time="0.0"/>
   <testcase name="set_timestamp" classname="com.example.MainTest" time="0.0"/>
-  <system-out><![CDATA[https://emma.pixnet.cc/oauth/authorize?oauth_token=c1446859664b3a0003d415e4e317f8b6
-nmngvrgz13v0kcdxcd
-1400810256
+  <system-out><![CDATA[https://emma.pixnet.cc/oauth/authorize?oauth_token=c0bd6d42770726558d96da3d866a0eab
+9hn705blork37nt9xp
+1400810514
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
