@@ -40,12 +40,16 @@ public class PostToPIXNETOauth2 {
 		this.redirect_uri = redirect_uri;
 	}
 
-	public static void main(String args[]) throws IOException, JSONException {
-
-	}
+	/*
+	 * public static void main(String args[]) throws IOException, JSONException
+	 * { PostToPIXNETOauth2 ptp = new PostToPIXNETOauth2(
+	 * "e6a0fa232cc4da68ae21b727b772229e", "fac5c7f719feef5eea37449b1fc6b2ad",
+	 * "http://oob");
+	 */
 
 	/**
 	 * The url that can auth and return the code for accesstoken
+	 * 
 	 * @return RequestUrl
 	 */
 	public String getRequestUrl() {
@@ -55,18 +59,27 @@ public class PostToPIXNETOauth2 {
 		return url;
 	}
 
-	private String post(String access_token) throws IOException {
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in,
-				"big5"));
-		System.out.print("Title:");
-		String title = in.readLine();
-		System.out.print("Body:");
-		String body = in.readLine();
+	/**
+	 * Post Article
+	 * 
+	 * @param access_token
+	 *            Access_token
+	 * @param title
+	 *            Article title
+	 * @param body
+	 *            Article body
+	 * @param param
+	 *            other param add with &param_type=param_value
+	 * @return The return String from server
+	 * @throws IOException
+	 */
+	public String post(String access_token, String title, String body,
+			String param) throws IOException {
 		URL urlPost = new URL(
 				"https://emma.pixnet.cc/blog/articles?access_token="
-						+ access_token + "&body="
-						+ URLEncoder.encode(body, "UTF-8") + "&title="
-						+ URLEncoder.encode(title, "UTF-8")); //
+						+ access_token + "&title="
+						+ URLEncoder.encode(title, "UTF-8") + "&body="
+						+ URLEncoder.encode(body, "UTF-8") + param);
 		// System.out.println(urlPost.toString());
 		HttpURLConnection con = (HttpURLConnection) urlPost.openConnection();
 		con.setDoOutput(true);
@@ -82,7 +95,8 @@ public class PostToPIXNETOauth2 {
 
 	/**
 	 * 
-	 * @param code Code from RequestUrl
+	 * @param code
+	 *            Code from RequestUrl
 	 * @return Set code and Get AccessToken
 	 * @throws IOException
 	 * @throws JSONException
