@@ -1,5 +1,3 @@
-package com.example;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,6 +13,7 @@ import org.json.JSONObject;
  * PIXNET API Oauth2.0
  * 
  * @author Koi
+ * @version 1.0.8
  */
 public class PostToPIXNETOauth2 {
 	private String access_token = "";
@@ -42,30 +41,21 @@ public class PostToPIXNETOauth2 {
 	}
 
 	public static void main(String args[]) throws IOException, JSONException {
-		PostToPIXNETOauth2 ptp = new PostToPIXNETOauth2(
-				"e6a0fa232cc4da68ae21b727b772229e",
-				"fac5c7f719feef5eea37449b1fc6b2ad", "http://oob");
-		System.out.println(ptp.post("759f5942086c063cbe53ce3d1c83c90e"));
+
 	}
 
 	/**
-	 * 
-	 * @return getGrant Url
+	 * The url that can auth and return the code for accesstoken
+	 * @return RequestUrl
 	 */
-	public String getGrant() {
+	public String getRequestUrl() {
 		String url = "https://emma.pixnet.cc/oauth2/authorize?client_id="
 				+ client_id + "&redirect_uri=" + redirect_uri
 				+ "&response_type=code";
 		return url;
 	}
 
-	/**
-	 * 
-	 * @param access_token
-	 * @return Post result
-	 * @throws IOException
-	 */
-	public String post(String access_token) throws IOException {
+	private String post(String access_token) throws IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in,
 				"big5"));
 		System.out.print("Title:");
@@ -97,7 +87,7 @@ public class PostToPIXNETOauth2 {
 	 * @throws IOException
 	 * @throws JSONException
 	 */
-	public String grant(String code) throws IOException, JSONException {
+	public String getAccessToken(String code) throws IOException, JSONException {
 		String urlgrant = "https://emma.pixnet.cc/oauth2/grant?grant_type=authorization_code&code="
 				+ code
 				+ "&redirect_uri="

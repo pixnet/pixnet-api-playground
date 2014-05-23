@@ -1,5 +1,3 @@
-package com.example;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -25,7 +23,7 @@ import org.apache.commons.codec.binary.Base64;
  * PIXNET API Oauth1.0a
  * 
  * @author Koi
- * 
+ * @version 1.0.8
  */
 public class PostToPIXNET {
 	private String oauth_callback = "oob";
