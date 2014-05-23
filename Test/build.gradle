@@ -1,21 +1,12 @@
-apply plugin: 'java'  
-apply plugin: 'eclipse'
-apply plugin: 'application'  
-
-
-javadoc.options.encoding = 'UTF-8'  
-compileJava.options.encoding = 'UTF-8'  
-
-mainClassName = 'pixnet.oauth.Main'
-
+apply plugin: 'java'
 repositories {
 	mavenCentral()
 	maven {
 		url "https://github.com/Twbadkid/Test-Maven-Repo/raw/master/"
 	}
 }  
-  
 dependencies {  
-    testCompile 'junit:junit:4.+'
-    compile 'com.test:testrepo:1.0.7'
-}
+    compile 'com.pixnet:pixnetRepo:1.0.0'
+    compile 'commons-codec:commons-codec:1.8'
+    compile 'org.json:json:20140107'
+} 
