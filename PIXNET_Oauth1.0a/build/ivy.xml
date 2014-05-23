@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
-  <info organisation="" module="PIXNET_Oauth1.0a" revision="unspecified" status="integration" publication="20140523105759">
+  <info organisation="" module="PIXNET_Oauth1.0a" revision="unspecified" status="integration" publication="20140523110633">
     <description/>
   </info>
   <configurations>
@@ -17,6 +17,6 @@
   <dependencies>
     <dependency org="commons-codec" name="commons-codec" rev="1.8" conf="compile-&gt;default"/>
     <dependency org="junit" name="junit" rev="4.+" conf="testCompile-&gt;default"/>
-    <dependency org="com.test" name="testrepo" rev="1.0.7" conf="testCompile-&gt;default"/>
+    <dependency org="com.test" name="testrepo" rev="1.0.9" conf="testCompile-&gt;default"/>
   </dependencies>
 </ivy-module>
