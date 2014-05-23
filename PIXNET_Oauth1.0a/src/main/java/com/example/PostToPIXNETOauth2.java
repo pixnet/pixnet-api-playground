@@ -14,7 +14,7 @@ import org.json.JSONObject;
  * PIXNET API Oauth2.0
  * 
  * @author Koi
- * @version 1.0.8
+ * @version 1.0.9
  */
 public class PostToPIXNETOauth2 {
 	private String access_token = "";
@@ -41,12 +41,6 @@ public class PostToPIXNETOauth2 {
 		this.redirect_uri = redirect_uri;
 	}
 
-	/*
-	 * public static void main(String args[]) throws IOException, JSONException
-	 * { PostToPIXNETOauth2 ptp = new PostToPIXNETOauth2(
-	 * "e6a0fa232cc4da68ae21b727b772229e", "fac5c7f719feef5eea37449b1fc6b2ad",
-	 * "http://oob");
-	 */
 
 	/**
 	 * The url that can auth and return the code for accesstoken
@@ -70,7 +64,7 @@ public class PostToPIXNETOauth2 {
 	 * @param body
 	 *            Article body
 	 * @param param
-	 *            other param add with &param_type=param_value
+	 *            other param add with &type=param_value
 	 * @return The return String from server
 	 * @throws IOException
 	 */
@@ -119,3 +113,4 @@ public class PostToPIXNETOauth2 {
 		return access_token;
 	}
 }
+

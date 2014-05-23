@@ -18,5 +18,11 @@
       <version>4.+</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.pixnet</groupId>
+      <artifactId>pixnetRepo</artifactId>
+      <version>1.0.0</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 </project>

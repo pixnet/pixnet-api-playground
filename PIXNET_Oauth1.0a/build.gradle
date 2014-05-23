@@ -19,6 +19,7 @@ dependencies {
     testCompile 'junit:junit:4.+'
     compile 'commons-codec:commons-codec:1.8'
     compile files('libs/java-json.jar')
+    testCompile 'com.pixnet:pixnetRepo:1.0.0'
 } 
 
 apply plugin: 'maven'
