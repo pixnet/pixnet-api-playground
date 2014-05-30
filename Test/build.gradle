@@ -6,7 +6,5 @@ repositories {
 	}
 }  
 dependencies {  
-    compile 'com.pixnet:pixnetRepo:1.0.0'
-    compile 'commons-codec:commons-codec:1.8'
-    compile 'org.json:json:20140107'
+    compile 'com.pixnet:pixnetRepo:1.0.2'
 } 
