@@ -12,5 +12,5 @@
 hs_err_pid*
 
 #Test report#
-reports
-test-result
+reports/
+test-results/
