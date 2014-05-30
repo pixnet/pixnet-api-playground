@@ -1,13 +1,14 @@
 buildscript {
     repositories {
         mavenCentral()
+    	maven {
+		url "https://github.com/Twbadkid/Test-Maven-Repo/raw/master/"
+    	}
     }
-
     dependencies {
         classpath 'com.android.tools.build:gradle:0.10.+'
     }
 }
-
 apply plugin: 'android'
 
 android {
@@ -82,5 +83,14 @@ android {
         // Set the severity of the given issues to ignore (same as disabling the check)
         ignore 'TypographyQuotes'
     }
+}
+repositories {
+    mavenCentral()
+    maven {
+	url "https://github.com/Twbadkid/Test-Maven-Repo/raw/master/"
+    }
+}
+dependencies {
+	compile 'com.pixnet:pixnetRepo:1.0.+'
 }
 apply plugin: 'eclipse'

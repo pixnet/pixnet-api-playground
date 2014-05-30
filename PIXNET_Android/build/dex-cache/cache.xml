@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="C:\Users\Koi\Desktop\pixnet-api-playground\PIXNET_Android\build\pre-dexed\debug\pixnetRepo-1.0.2-3dbe41a41334ca4eece570ff894de3b2a18e557c.jar"
+        jar="C:\Users\Koi\.gradle\caches\modules-2\files-2.1\com.pixnet\pixnetRepo\1.0.2\e82461e29cee3e38b737c9270ade6a712a3730dc\pixnetRepo-1.0.2.jar"
+        jumboMode="false"
+        revision="19.0.0"
+        sha1="e82461e29cee3e38b737c9270ade6a712a3730dc"/>
+    <item
+        dex="C:\Users\Koi\Desktop\pixnet-api-playground\PIXNET_Android\build\pre-dexed\debug\commons-codec-1.8-f4c781200504523397b5b89aedd48717cc02e29d.jar"
+        jar="C:\Users\Koi\.gradle\caches\modules-2\files-2.1\commons-codec\commons-codec\1.8\af3be3f74d25fc5163b54f56a0d394b462dafafd\commons-codec-1.8.jar"
+        jumboMode="false"
+        revision="19.0.0"
+        sha1="af3be3f74d25fc5163b54f56a0d394b462dafafd"/>
+
+</pre-dex-items>

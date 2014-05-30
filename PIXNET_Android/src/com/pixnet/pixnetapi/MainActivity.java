@@ -1,5 +1,9 @@
 package com.pixnet.pixnetapi;
 
+import java.io.IOException;
+
+import org.json.JSONException;
+
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -10,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import com.pixnet.*;
 
 public class MainActivity extends Activity {
 
@@ -17,7 +22,15 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		try {
+			PostToPIXNETOauth2 ptp = new PostToPIXNETOauth2(
+					"e6a0fa232cc4da68ae21b727b772229e",
+					"fac5c7f719feef5eea37449b1fc6b2ad", "http://oob");
+		} catch (IOException e) {
 
+		} catch (JSONException e) {
+
+		}
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
