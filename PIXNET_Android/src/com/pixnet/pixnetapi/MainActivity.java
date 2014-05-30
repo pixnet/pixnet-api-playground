@@ -21,17 +21,17 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		try {
-			PostToPIXNETOauth2 ptp = new PostToPIXNETOauth2(
-					"e6a0fa232cc4da68ae21b727b772229e",
-					"fac5c7f719feef5eea37449b1fc6b2ad", "http://oob");
-			TextView show = (TextView) findViewById(R.id.show);
-			show.setText(ptp.getRequestUrl());
-		} catch (IOException e) {
+		//try {
+		//	PostToPIXNETOauth2 ptp = new PostToPIXNETOauth2(
+		//			"e6a0fa232cc4da68ae21b727b772229e",
+		//			"fac5c7f719feef5eea37449b1fc6b2ad", "http://oob");
+		//	TextView show = (TextView) findViewById(R.id.show);
+		//	show.setText(ptp.getRequestUrl());
+		//} catch (IOException e) {
 
-		} catch (JSONException e) {
-
-		}
+		//} catch (JSONException e) {
+//
+		//}
 
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()
