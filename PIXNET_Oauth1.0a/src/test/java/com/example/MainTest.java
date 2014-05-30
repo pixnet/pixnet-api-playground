@@ -18,7 +18,6 @@ public class MainTest {
 				"dfa46d6dc4acfc8a25046fffcc5d9b14");
 	ptp2 = new PostToPIXNETOauth2("e6a0fa232cc4da68ae21b727b772229e",
 				"fac5c7f719feef5eea37449b1fc6b2ad","http://oob");
-	accessToken = ptp2.getAccessToken("caa9be1c0017b0296fd4335b629a3c6316e5fd72");
     }
     @Test
     public void PostToPIXNETOauth2TestRequest() throws Exception{  
@@ -26,6 +25,7 @@ public class MainTest {
     } 
     @Test 
     public void PostToPIXNETOauth2TestPostError() throws Exception{
+	accessToken = ptp2.getAccessToken("26f9cfe1db511626d3ceb7312e3b647dfef8f8b9");
 	String responseString = ptp2.post(accessToken,"Test","AAA","");
 	try{
 		assertThat(responseString, both(containsString("\"body\":\"HiHi\"")).and(containsString("\"title\":\"Test\"")));
@@ -35,6 +35,7 @@ public class MainTest {
     } 
     @Test 
     public void PostToPIXNETOauth2TestPost() throws Exception{
+	accessToken = ptp2.getAccessToken("26f9cfe1db511626d3ceb7312e3b647dfef8f8b9");
 	String responseString = ptp2.post(accessToken,"Test","AAA","");
 	try{
 		assertThat(responseString, both(containsString("\"body\":\"AAA\"")).and(containsString("\"title\":\"Test\"")));
