@@ -13,3 +13,4 @@ hs_err_pid*
 
 #Test report#
 \PIXNET_Oauth1.0a\build\reports\*.*
+\PIXNET_Oauth1.0a\build\test-result\*.*
