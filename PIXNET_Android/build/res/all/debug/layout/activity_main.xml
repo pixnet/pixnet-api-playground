@@ -5,5 +5,4 @@
     android:layout_height="match_parent"
     tools:context="com.pixnet.pixnetapi.MainActivity"
     tools:ignore="MergeRootFrame" />
-
 <!-- From: file:/C:/Users/Koi/Desktop/pixnet-api-playground/PIXNET_Android/res/layout/activity_main.xml -->

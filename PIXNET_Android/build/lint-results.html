@@ -18,28 +18,58 @@ document.getElementById(id+'Link').style.display = 'none';
 <body>
 <h1>Lint Report</h1>
 <div class="titleSeparator"></div>
-Check performed at Fri May 30 16:26:59 CST 2014.<br/>
-1 errors and 2 warnings found:<br/><br/>
+Check performed at Fri May 30 17:43:19 CST 2014.<br/>
+1 errors and 5 warnings found:<br/><br/>
 <table class="overview">
 <tr><td></td><td class="categoryColumn"><a href="#Correctness">Correctness</a>
+</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><img border="0" align="top" src="lint-results_files/lint-error.png" alt="Error" />
+<a href="#MissingRegistered">MissingRegistered: Missing registered class</a>
 </td></tr>
 <tr>
 <td class="countColumn">1</td><td class="issueColumn"><img border="0" align="top" src="lint-results_files/lint-warning.png" alt="Warning" />
 <a href="#OldTargetApi">OldTargetApi: Target SDK attribute is not targeting latest version</a>
 </td></tr>
 <tr>
-<td class="countColumn">1</td><td class="issueColumn"><img border="0" align="top" src="lint-results_files/lint-error.png" alt="Error" />
-<a href="#PropertyEscape">PropertyEscape: Incorrect property escapes</a>
-</td></tr>
-<tr>
 <td class="countColumn">1</td><td class="issueColumn"><img border="0" align="top" src="lint-results_files/lint-warning.png" alt="Warning" />
 <a href="#GradleDependency">GradleDependency: Obsolete Gradle Dependency</a>
 </td></tr>
-<tr><td></td><td class="categoryColumn"><a href="#MissingIssues">Disabled Checks (14)</a>
+<tr><td></td><td class="categoryColumn"><a href="#Performance">Performance</a>
+</td></tr>
+<tr>
+<td class="countColumn">3</td><td class="issueColumn"><img border="0" align="top" src="lint-results_files/lint-warning.png" alt="Warning" />
+<a href="#UnusedResources">UnusedResources: Unused resources</a>
+</td></tr>
+<tr><td></td><td class="categoryColumn"><a href="#MissingIssues">Disabled Checks (13)</a>
 </td></tr></table>
 <br/>
 <a name="Correctness"></a>
 <div class="category"><a href="#" title="Return to top">Correctness</a><div class="categorySeparator"></div>
+</div>
+<a name="MissingRegistered"></a>
+<div class="issue">
+<div class="id"><a href="#" title="Return to top">MissingRegistered: Missing registered class</a><div class="issueSeparator"></div>
+</div>
+<div class="warningslist">
+<span class="location"><a href="../AndroidManifest.xml">../AndroidManifest.xml</a>:17</span>: <span class="message">Class referenced in the manifest, com.pixnet.pixnetapi.MainActivity, was not found in the project or the libraries</span><br /><pre class="errorlines">
+<span class="lineno">  14</span>         android:icon="@drawable/ic_launcher"
+<span class="lineno">  15</span>         android:label="@string/app_name"
+<span class="lineno">  16</span>         android:theme="@style/AppTheme" >
+<span class="lineno">  17</span>         <span class="errorspan">&lt;activity</span>
+<span class="lineno">  18</span>             android:name="com.pixnet.pixnetapi.MainActivity"
+<span class="lineno">  19</span>             android:label="@string/app_name" >
+</pre>
+</div>
+<div class="metadata">Priority: 8 / 10<br/>
+Category: Correctness</div>
+Severity: <span class="error">Error</span><div class="summary">
+Explanation: Ensures that classes referenced in the manifest are present in the project or libraries.</div>
+<div class="explanation">
+If a class is referenced in the manifest, it must also exist in the project (or in one of the libraries included by the project. This check helps uncover typos in registration names, or attempts to rename or move classes without updating the manifest file properly.
+</div>
+<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/topics/manifest/manifest-intro.html">http://developer.android.com/guide/topics/manifest/manifest-intro.html</a>
+</div><br/>To suppress this error, use the issue id "MissingRegistered" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
 </div>
 <a name="OldTargetApi"></a>
 <div class="issue">
@@ -67,38 +97,18 @@ To fix this issue, set the <code>targetSdkVersion</code> to the highest availabl
 <br/><div class="moreinfo">More info: <a href="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html">http://developer.android.com/reference/android/os/Build.VERSION_CODES.html</a>
 </div><br/>To suppress this error, use the issue id "OldTargetApi" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
 </div>
-<a name="PropertyEscape"></a>
-<div class="issue">
-<div class="id"><a href="#" title="Return to top">PropertyEscape: Incorrect property escapes</a><div class="issueSeparator"></div>
-</div>
-<div class="warningslist">
-<span class="location"><a href="../local.properties">../local.properties</a>:1</span>: <span class="message">Colon (:) must be escaped in .property files</span><br /><pre class="errorlines">
-<span class="lineno">   1</span> sdk.dir=C<span class="errorspan">:\\Android\\android-sdk</span>
-<span class="lineno">   2</span> 
-
-</pre>
-</div>
-<div class="metadata">Priority: 6 / 10<br/>
-Category: Correctness</div>
-Severity: <span class="error">Error</span><div class="summary">
-Explanation: Looks for property files with incorrect paths.</div>
-<div class="explanation">
-All backslashes and colons in .property files must be escaped with a backslash (\). This means that when writing a Windows path, you must escape the file separators, so the path \My\Files should be written as <code>key=\\My\\Files.</code>
-</div>
-<br/><div class="moreinfo">More info: </div><br/>To suppress this error, use the issue id "PropertyEscape" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
 <a name="GradleDependency"></a>
 <div class="issue">
 <div class="id"><a href="#" title="Return to top">GradleDependency: Obsolete Gradle Dependency</a><div class="issueSeparator"></div>
 </div>
 <div class="warningslist">
-<span class="location"><a href="../build.gradle">../build.gradle</a>:15</span>: <span class="message">Old buildToolsVersion; recommended version is 19.1.0 or later</span><br /><pre class="errorlines">
-<span class="lineno">  12</span> 
-<span class="lineno">  13</span> android {
-<span class="lineno">  14</span>     compileSdkVersion 19
-<span class="lineno">  15</span>     <span class="errorspan">buildToolsVersion "19.0.0"</span>
-<span class="lineno">  16</span> }
-<span class="lineno">  17</span> android {
+<span class="location"><a href="../build.gradle">../build.gradle</a>:17</span>: <span class="message">Old buildToolsVersion; recommended version is 19.0.1 or later</span><br /><pre class="errorlines">
+<span class="lineno">  14</span> 
+<span class="lineno">  15</span> android {
+<span class="lineno">  16</span>     compileSdkVersion 19
+<span class="lineno">  17</span>     <span class="errorspan">buildToolsVersion "19.0.0"</span>
+<span class="lineno">  18</span> 
+<span class="lineno">  19</span>     compileOptions {
 </pre>
 </div>
 <div class="metadata">Priority: 4 / 10<br/>
@@ -109,6 +119,28 @@ Explanation: Looks for old or obsolete Gradle library dependencies.</div>
 This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find.
 </div>
 <br/><div class="moreinfo">More info: </div><br/>To suppress this error, use the issue id "GradleDependency" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+
+<a name="Performance"></a>
+<div class="category"><a href="#" title="Return to top">Performance</a><div class="categorySeparator"></div>
+</div>
+<a name="UnusedResources"></a>
+<div class="issue">
+<div class="id"><a href="#" title="Return to top">UnusedResources: Unused resources</a><div class="issueSeparator"></div>
+</div>
+<div class="warningslist">
+<span class="location"><a href="../res/layout/activity_main.xml">../res/layout/activity_main.xml</a></span>: <span class="message">The resource R.layout.activity_main appears to be unused</span><br />
+<span class="location"><a href="../res/layout/fragment_main.xml">../res/layout/fragment_main.xml</a></span>: <span class="message">The resource R.layout.fragment_main appears to be unused</span><br />
+<span class="location"><a href="../res/menu/main.xml">../res/menu/main.xml</a></span>: <span class="message">The resource R.menu.main appears to be unused</span><br />
+</div>
+<div class="metadata">Priority: 3 / 10<br/>
+Category: Performance</div>
+Severity: <span class="warning">Warning</span><div class="summary">
+Explanation: Looks for unused resources.</div>
+<div class="explanation">
+Unused resources make applications larger and slow down builds.
+</div>
+<br/><div class="moreinfo">More info: </div><br/>To suppress this error, use the issue id "UnusedResources" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
 </div>
 
 <a name="MissingIssues"></a>
@@ -193,21 +225,6 @@ There are predefined sizes (for each density) for launcher icons. You should fol
 </div>
 <br/><div class="moreinfo">More info: <a href="http://developer.android.com/design/style/iconography.html">http://developer.android.com/design/style/iconography.html</a>
 </div><br/>To suppress this error, use the issue id "IconExpectedSize" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
-</div>
-<a name="NewerVersionAvailable"></a>
-<div class="issue">
-<div class="id">NewerVersionAvailable<div class="issueSeparator"></div>
-</div>
-<div class="metadata">Disabled By: Default<br/>
-Priority: 4 / 10<br/>
-Category: Correctness</div>
-Severity: <span class="warning">Warning</span><div class="summary">
-Explanation: Looks for Gradle library dependencies that can be replaced by newer versions.</div>
-<div class="explanation">
-This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project.<br/>
-This is similar to the <code>GradleDependency</code> check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also <b>much</b> slower.
-</div>
-<br/><div class="moreinfo">More info: </div><br/>To suppress this error, use the issue id "NewerVersionAvailable" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
 </div>
 <a name="RtlCompat"></a>
 <div class="issue">

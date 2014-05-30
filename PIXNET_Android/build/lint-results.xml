@@ -2,6 +2,24 @@
 <issues format="4" by="lint 22.6.3">
 
     <issue
+        id="MissingRegistered"
+        severity="Error"
+        message="Class referenced in the manifest, com.pixnet.pixnetapi.MainActivity, was not found in the project or the libraries"
+        category="Correctness"
+        priority="8"
+        summary="Ensures that classes referenced in the manifest are present in the project or libraries"
+        explanation="If a class is referenced in the manifest, it must also exist in the project (or in one of the libraries included by the project. This check helps uncover typos in registration names, or attempts to rename or move classes without updating the manifest file properly."
+        url="http://developer.android.com/guide/topics/manifest/manifest-intro.html"
+        urls="http://developer.android.com/guide/topics/manifest/manifest-intro.html"
+        errorLine1="        &lt;activity"
+        errorLine2="        ^">
+        <location
+            file="C:\Users\Koi\Desktop\pixnet-api-playground\PIXNET_Android\AndroidManifest.xml"
+            line="17"
+            column="9"/>
+    </issue>
+
+    <issue
         id="OldTargetApi"
         severity="Warning"
         message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details."
@@ -22,35 +40,55 @@ To fix this issue, set the `targetSdkVersion` to the highest available value. Th
     </issue>
 
     <issue
-        id="PropertyEscape"
-        severity="Error"
-        message="Colon (:) must be escaped in .property files"
-        category="Correctness"
-        priority="6"
-        summary="Looks for property files with incorrect paths"
-        explanation="All backslashes and colons in .property files must be escaped with a backslash (\). This means that when writing a Windows path, you must escape the file separators, so the path \My\Files should be written as `key=\\My\\Files.`"
-        errorLine1="sdk.dir=C:\\Android\\android-sdk"
-        errorLine2="         ~">
-        <location
-            file="C:\Users\Koi\Desktop\pixnet-api-playground\PIXNET_Android\local.properties"
-            line="1"
-            column="10"/>
-    </issue>
-
-    <issue
         id="GradleDependency"
         severity="Warning"
-        message="Old buildToolsVersion; recommended version is 19.1.0 or later"
+        message="Old buildToolsVersion; recommended version is 19.0.1 or later"
         category="Correctness"
         priority="4"
         summary="Looks for old or obsolete Gradle library dependencies"
         explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
-        errorLine1="    buildToolsVersion &quot;19.0.0&quot;"
+        errorLine1="    buildToolsVersion &quot;19.0.0&quot;"
         errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="C:\Users\Koi\Desktop\pixnet-api-playground\PIXNET_Android\build.gradle"
-            line="15"
+            line="17"
             column="5"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.layout.activity_main appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="C:\Users\Koi\Desktop\pixnet-api-playground\PIXNET_Android\res\layout\activity_main.xml"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.layout.fragment_main appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="C:\Users\Koi\Desktop\pixnet-api-playground\PIXNET_Android\res\layout\fragment_main.xml"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.menu.main appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="C:\Users\Koi\Desktop\pixnet-api-playground\PIXNET_Android\res\menu\main.xml"/>
     </issue>
 
 </issues>
