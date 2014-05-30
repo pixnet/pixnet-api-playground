@@ -25,11 +25,13 @@ public class MainActivity extends Activity {
 			PostToPIXNETOauth2 ptp = new PostToPIXNETOauth2(
 					"e6a0fa232cc4da68ae21b727b772229e",
 					"fac5c7f719feef5eea37449b1fc6b2ad", "http://oob");
+			ptp.getRequestUrl();
 		} catch (IOException e) {
 
 		} catch (JSONException e) {
 
 		}
+		
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
